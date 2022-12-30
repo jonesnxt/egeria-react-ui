@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 /* Copyright Contributors to the ODPi Egeria project. */
 import React, { useState, useEffect } from "react";
-import { ContentSwitcher, Switch } from "carbon-components-react";
+import { ContentSwitcher, Routes } from "carbon-components-react";
 import StartingGlossaryNavigation from "./StartingGlossaryNavigation";
 import StartingTermNavigation from "./StartingTermNavigation";
 import StartingCategoryNavigation from "./StartingCategoryNavigation";
@@ -73,9 +73,9 @@ function GlossaryAuthorNavigation(props) {
   return (
     <div>
       <ContentSwitcher selectedIndex={selectedContentIndex} onChange={onChange}>
-        <Switch name="glossaries" text="Glossaries" />
-        <Switch name="categories" text="Categories" />
-        <Switch name="terms" text="Terms" />
+        <Routes name="glossaries" text="Glossaries" />
+        <Routes name="categories" text="Categories" />
+        <Routes name="terms" text="Terms" />
       </ContentSwitcher>
       {selectedContentIndex === 0 && (
         <StartingGlossaryNavigation match={props.match} />

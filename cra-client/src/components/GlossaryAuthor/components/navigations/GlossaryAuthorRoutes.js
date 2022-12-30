@@ -2,7 +2,7 @@
 /* Copyright Contributors to the ODPi Egeria project. */
 import React from "react";
 // import { IdentificationContext } from "../../../../contexts/IdentificationContext";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Routes, Redirect } from "react-router-dom";
 // navigation components
 import GlossaryAuthorNavigation from "./GlossaryAuthorNavigation";
 import TermAuthorNavigation from "./GlossaryAuthorNavigation";
@@ -69,7 +69,7 @@ export default function GlossaryAuthorRoutes({ glossaryAuthorURL }) {
   }
 
   return (
-    <Switch>
+    <Routes>
     {/* top level first */}
     <Route
         exact
@@ -104,6 +104,6 @@ export default function GlossaryAuthorRoutes({ glossaryAuthorURL }) {
 
       <Route path="/" render={() => <h1>Route not recognised</h1>}></Route>
       {/* <Route render={() => <h1>Route not recognised!!</h1>}></Route> */}
-    </Switch>
+    </Routes>
   );
 }
