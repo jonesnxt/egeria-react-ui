@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { IdentificationContext } from "../../../contexts/IdentificationContext";
-import { ContentSwitcher, Switch } from "carbon-components-react";
+import { ContentSwitcher, Routes } from "carbon-components-react";
 import GlossaryAuthorTermsNavigation from "./navigations/GlossaryAuthorTermsNavigation";
 import GlossaryAuthorCategoriesNavigation from "./navigations/GlossaryAuthorCategoriesNavigation";
 import GlossaryAuthorChildCategoriesNavigation from "./navigations/GlossaryAuthorChildCategoriesNavigation";
@@ -107,8 +107,8 @@ function NodeChildren(props) {
   return (
     <div>
       <ContentSwitcher selectedIndex={selectedContentIndex} onChange={onChange}>
-        <Switch name="categories" text="Categories" />
-        <Switch name="terms" text="Terms" />
+        <Routes name="categories" text="Categories" />
+        <Routes name="terms" text="Terms" />
       </ContentSwitcher>
 
       {!isStale() &&
