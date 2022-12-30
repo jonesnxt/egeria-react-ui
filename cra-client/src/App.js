@@ -2,7 +2,7 @@
 /* Copyright Contributors to the ODPi Egeria project. */
 import React from "react";
 import "./app.scss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./auth/login";
 import NoServerName from "./auth/NoServerName";
 import Frame from "./Frame";
@@ -13,17 +13,17 @@ export default function App() {
     <div>
       <IdentificationContext>
         <Router>
-          <Routes>
-          <Route path="/" exact>
-              <NoServerName/>
+          <Switch>
+          <Route element={<NoServerName/>}  path="/" exact>
+              
             </Route>
-            <Route path="/*/login" exact>
-              <Login currentURL={window.location.href} />
+            <Route element={<Login currentURL={window.location.href} />}  path="/*/login" exact>
+              
             </Route>
-            <Route path="/*/">
-              <Frame />
+            <Route element={<Frame />}  path="/*/">
+              
             </Route>
-          </Routes>
+          </Switch>
         </Router>
       </IdentificationContext>
     </div>
