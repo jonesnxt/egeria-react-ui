@@ -20,7 +20,7 @@ import {
 } from "carbon-components-react";
 import Info16 from "@carbon/icons-react/lib/information/16";
 import { issueRestUpdate, issueRestGet } from "../../../common/RestCaller";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function UpdateNode(props) {
   const identificationContext = useContext(IdentificationContext);
@@ -97,7 +97,7 @@ export default function UpdateNode(props) {
   const [errorMsg, setErrorMsg] = useState();
   const [relationshipOffset, setRelationshipOffset] = useState(0);
   console.log("UpdateNode");
-  let history = useHistory();
+  let navigate = useNavigate();
   // big enough to get one of each relationship type, if they exist
   const relationshipPageSize = 30;
 
@@ -335,10 +335,9 @@ export default function UpdateNode(props) {
 
   const onClickBack = () => {
     console.log("Back clicked");
-    // use history, as there is another window history object in scope in the event listener
-    console.log(history);
-    // go  back
-    history.goBack();
+
+    // go back
+    navigate(-1);
   };
 
   return (

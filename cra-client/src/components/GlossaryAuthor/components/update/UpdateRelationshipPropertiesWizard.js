@@ -10,7 +10,7 @@ import RelationshipInput from "../authoringforms/RelationshipInput";
 import RelationshipReadOnly from "../authoringforms/RelationshipReadOnly";
 import { IdentificationContext } from "../../../../contexts/IdentificationContext";
 import getRelationshipType from "../properties/RelationshipTypes.js";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   validatePropertiesUserInput,
   extendUserInput,
@@ -93,7 +93,7 @@ export default function UpdateRelationshipPropertiesWizard(props) {
     setRelationshipToUpdate(props.currentRelationship);
   }, [props.currentRelationship]);
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("UpdateWizard");
 
   const handleGotUpdateDetailsOnClick = (e) => {
@@ -120,7 +120,7 @@ export default function UpdateRelationshipPropertiesWizard(props) {
       props.onUpdated(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
 

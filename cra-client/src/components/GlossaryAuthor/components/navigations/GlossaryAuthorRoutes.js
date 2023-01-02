@@ -2,7 +2,7 @@
 /* Copyright Contributors to the ODPi Egeria project. */
 import React from "react";
 // import { IdentificationContext } from "../../../../contexts/IdentificationContext";
-import { Route, Routes, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 // navigation components
 import GlossaryAuthorNavigation from "./GlossaryAuthorNavigation";
 import TermAuthorNavigation from "./GlossaryAuthorNavigation";
@@ -72,34 +72,34 @@ export default function GlossaryAuthorRoutes({ glossaryAuthorURL }) {
     <Routes>
     {/* top level first */}
     <Route
-        
+        exact
         path={getGlossariesPath()}
         element={<GlossaryAuthorNavigation />}
       ></Route>
       <Route
-        
+        exact
         path={getTermsPath()}
         element={<TermAuthorNavigation />}
       ></Route>
       <Route
-        
+        exact
         path={getCategoriesPath()}
         element={<CategoryAuthorNavigation />}
       ></Route>
-      <Route path={getGlossaryAuthorPathAny() + "quick-terms"}  element={<GlossaryQuickTerms />} ></Route> 
+      <Route path={getGlossaryAuthorPathAny() + "quick-terms"} exact element={<GlossaryQuickTerms />} ></Route> 
       {/* Adds */}
-      <Route path={getGlossaryAuthorPathAny() + "add"}  element={<CreateNode />}></Route>
+      <Route path={getGlossaryAuthorPathAny() + "add"} exact element={<CreateNode />}></Route>
 
       {/* edits */}
-      <Route path={getGlossaryAuthorPathAny() + "edit"}  element={<UpdateNode />}></Route>
+      <Route path={getGlossaryAuthorPathAny() + "edit"} exact element={<UpdateNode />}></Route>
 
       {/* children   */}
-       <Route path={getGlossaryAuthorPathAny() + "terms"}  element={<NodeChildren />} ></Route>
-       <Route path={getGlossaryAuthorPathAny() + "categories"}  element={<NodeChildren />} ></Route>
+       <Route path={getGlossaryAuthorPathAny() + "terms"} exact element={<NodeChildren />} ></Route>
+       <Route path={getGlossaryAuthorPathAny() + "categories"} exact element={<NodeChildren />} ></Route>
        {/* visualise */}
-       <Route path={getGlossaryAuthorPathAny() + "visualise"}  element={<GlossaryAuthorGraphNavigation />}></Route> 
+       <Route path={getGlossaryAuthorPathAny() + "visualise"} exact element={<GlossaryAuthorGraphNavigation />}></Route> 
 
-      <Redirect path={glossaryAuthorURL} exact to={getGlossariesPath()} />
+      <Navigate path={glossaryAuthorURL} exact to={getGlossariesPath()} />
     
 
       <Route path="/" element={<h1>Route not recognised</h1>}></Route>

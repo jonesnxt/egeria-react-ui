@@ -7,7 +7,7 @@ import {
 import RelationshipReadOnly from "../authoringforms/RelationshipReadOnly";
 import { IdentificationContext } from "../../../../contexts/IdentificationContext";
 import getRelationshipType from "../properties/RelationshipTypes.js";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /**
  * This is a relationship delete properties wizard. There is a confirmation screen,
@@ -29,7 +29,7 @@ export default function DeleteRelationshipWizard(props) {
     setRelationshipToDelete(props.currentRelationship);
   }, [props.currentRelationship]);
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("DeleteWizard");
 
 
@@ -42,7 +42,7 @@ export default function DeleteRelationshipWizard(props) {
       props.onDeleted(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
 

@@ -5,7 +5,7 @@ import { ContentSwitcher, Switch } from "carbon-components-react";
 import StartingGlossaryNavigation from "./StartingGlossaryNavigation";
 import StartingTermNavigation from "./StartingTermNavigation";
 import StartingCategoryNavigation from "./StartingCategoryNavigation";
-import { useHistory, withRouter } from "react-router-dom";
+import { useNavigate, withRouter } from "react-router-dom";
 
 function GlossaryAuthorNavigation(props) {
   console.log("GlossaryAuthorNavigation");
@@ -35,7 +35,7 @@ function GlossaryAuthorNavigation(props) {
     setSelectedContentIndex(index);
   }, []);
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const onChange = (e) => {
     const chosenContent = `${e.name}`;
@@ -59,7 +59,7 @@ function GlossaryAuthorNavigation(props) {
     console.log("pushing url " + url);
 
     // Use replace rather than push so the content switcher changes are not navigated through the back button, which would be uninituitive.
-    history.replace(url);
+    navigate(url, { replace: true });
 
     let index = 0;
     if (chosenContent === "categories") {

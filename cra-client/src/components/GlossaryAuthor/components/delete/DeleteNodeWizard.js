@@ -7,7 +7,7 @@ import {
 import NodeReadOnly from "../authoringforms/NodeReadOnly";
 import { IdentificationContext } from "../../../../contexts/IdentificationContext";
 import getNodeType from "../properties/NodeTypes.js";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /**
  * There is a confirmation screen, where the user can confirm the values that will be used to delete the node.
@@ -77,7 +77,7 @@ export default function DeleteNodeWizard(props) {
     setNodeToDelete(props.currentNode);
   }, [props.currentNode]);
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("DeleteWizard");
 
   const finished = () => {
@@ -89,7 +89,7 @@ export default function DeleteNodeWizard(props) {
       props.onDeleted(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
 

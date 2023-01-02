@@ -8,7 +8,7 @@ import {
 } from "carbon-components-react";
 import NodeInput from "../authoringforms/NodeInput";
 import NodeReadOnly from "../authoringforms/NodeReadOnly";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   validatePropertiesUserInput,
   extendUserInput,
@@ -49,7 +49,7 @@ export default function CreateGlossaryWizard(props) {
     }
   }, []);
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("CreateGlossaryWizard");
 
   const handleGotCreateDetailsOnClick = (e) => {
@@ -76,7 +76,7 @@ export default function CreateGlossaryWizard(props) {
       props.onCreated(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
 

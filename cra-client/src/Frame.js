@@ -167,7 +167,7 @@ export default function Frame() {
             <Content id="main-content">
               <div className="bx--row">
                 <section className="bx--offset-lg-3 bx--col-lg-13">
-                  <Route element={<Home />}  path={rootUrl}  />
+                  <Route element={<Home />}  path={rootUrl} exact />
                   <Route element={<Home />}  path={homeUrl} />
                   <Route element={<GlossaryAuthor />}  path={glossaryAuthorUrl} />
                   <Route element={<RepositoryExplorer />}  path={rexUrl} />

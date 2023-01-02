@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { issueRestGet } from "../../../../common/RestCaller";
 import getNodeType from "../../properties/NodeTypes";
 import getRelationshipType from "../../properties/RelationshipTypes";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 import { IdentificationContext } from "../../../../../contexts/IdentificationContext";
 
@@ -24,7 +24,7 @@ export const InstancesContextConsumer = InstancesContext.Consumer;
 
 const InstancesContextProvider = (props) => {
   const identificationContext = useContext(IdentificationContext);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   /*
    * The focusInstance is the instance (Node or Relationship) that is the user's current
@@ -1232,7 +1232,7 @@ const InstancesContextProvider = (props) => {
    * refresh the page
    */
   const clear = () => {
-    history.go(0);
+    navigate(0);
   };
 
   /*

@@ -9,7 +9,7 @@ import GlossaryAuthorCategoriesNavigation from "./navigations/GlossaryAuthorCate
 import GlossaryAuthorChildCategoriesNavigation from "./navigations/GlossaryAuthorChildCategoriesNavigation";
 import getNodeType from "./properties/NodeTypes";
 import getPathTypesAndGuids from "./properties/PathAnalyser";
-import { useHistory, withRouter } from "react-router-dom";
+import { useNavigate, withRouter } from "react-router-dom";
 /**
  * NodeChildren is driven by the GlossaryAuthorRoutes, with a path ending in Terms or Categories.
  * The second last segment should be the parent guid and the thrid last segment should be the parent type
@@ -45,7 +45,7 @@ function NodeChildren(props) {
     setSelectedContentIndex(index);
   });
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const onChange = (e) => {
     const chosenContent = `${e.name}`;
@@ -54,7 +54,7 @@ function NodeChildren(props) {
     url = url + "/" + chosenContent;
 
     // Use replace rather than push so the content switcher changes are not navigated through the back button, which would be uninituitive.
-    history.replace(url);
+    navigate(url, { replace: true });
 
     if (chosenContent === "terms") {
       setSelectedContentIndex(1);

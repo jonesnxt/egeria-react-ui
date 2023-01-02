@@ -24,7 +24,7 @@ import {
 } from "carbon-components-react";
 
 import { issueRestCreate } from "../../common/RestCaller";
-import { useHistory, withRouter } from "react-router-dom";
+import { useNavigate, withRouter } from "react-router-dom";
 
 function GlossaryQuickTerms(props) {
   const identificationContext = useContext(IdentificationContext);
@@ -37,7 +37,7 @@ function GlossaryQuickTerms(props) {
   const [errorMsg, setErrorMsg] = useState();
   const [glossaryGuid, setGlossaryGuid] = useState();
   const [restCallInProgress, setRestCallInProgress] = useState(false);
-  let history = useHistory();
+  let navigate = useNavigate();
   const url = getUrl();
 
   useEffect(() => {
@@ -125,7 +125,7 @@ function GlossaryQuickTerms(props) {
       setTermsWithStatus([]);
     } else {
       // go back using the router history
-      history.goBack();
+      navigate(-1);
     }
   };
 

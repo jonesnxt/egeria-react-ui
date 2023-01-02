@@ -10,7 +10,7 @@ import NodeInput from "../authoringforms/NodeInput";
 import NodeReadOnly from "../authoringforms/NodeReadOnly";
 import { IdentificationContext } from "../../../../contexts/IdentificationContext";
 import getNodeType from "../properties/NodeTypes.js";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   validatePropertiesUserInput,
   extendUserInput,
@@ -93,7 +93,7 @@ export default function UpdateNodePropertiesWizard(props) {
     setNodeToUpdate(props.currentNode);
   }, [props.currentNode]);
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("UpdateWizard");
 
   const handleGotUpdateDetailsOnClick = (e) => {
@@ -120,7 +120,7 @@ export default function UpdateNodePropertiesWizard(props) {
       props.onUpdated(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
 

@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 /* Copyright Contributors to the ODPi Egeria project. */
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import Egeriacolor from "../images/odpi/Egeria_logo_color";
 import { IdentificationContext } from "../contexts/IdentificationContext";
@@ -21,7 +21,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState("");
   const [errorMsg, setErrorMsg] = useState();
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const handleOnClick = (e) => {
     console.log("login handleClick(()");
@@ -49,7 +49,7 @@ const Login = () => {
           identificationContext.setAuthenticated(true);
           // TODO original url prop.
           const path = identificationContext.getBrowserURL("");
-          history.push(path);
+          navigate(path);
         } else {
           if (res.errno) {
             setErrorMsg("Login Failed with errno" + res.errno);
@@ -60,7 +60,7 @@ const Login = () => {
         })
         .catch(res => {
           alert("The URL is not valid. You will be asked to put in a valid Server Name.");
-          history.replace('/');
+          navigate('/', { replace: true });
         }
       );
   };

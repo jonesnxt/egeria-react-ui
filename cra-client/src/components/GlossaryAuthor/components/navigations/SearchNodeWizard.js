@@ -8,7 +8,7 @@ import {
 } from "carbon-components-react";
 import StartingNodeNavigation from "./StartingNodeNavigation";
 import NodeReadOnly from "../authoringforms/NodeReadOnly";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 /**
@@ -25,7 +25,7 @@ export default function SearchNodeWizard(props) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [nodeChosen, setNodeChosen] = useState();
 
-  let history = useHistory();
+  let navigate = useNavigate();
   console.log("SearchNodeWizard");
 
   const HandleGotChosen = (e) => {
@@ -52,7 +52,7 @@ export default function SearchNodeWizard(props) {
       props.onChosen(payLoad);
     } else {
       // in not in a modal got back to the last page 
-      history.goBack();
+      navigate(-1);
     }
   };
   const onChosen = (node) => {

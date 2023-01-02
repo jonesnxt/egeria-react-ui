@@ -14,8 +14,8 @@ export default function App() {
       <IdentificationContext>
         <Router>
           <Routes>
-            <Route element={<NoServerName/>}  path="/"  />
-            <Route element={<Login currentURL={window.location.href} />}  path="/*/login"  />
+            <Route element={<NoServerName/>}  path="/" exact />
+            <Route element={<Login currentURL={window.location.href} />}  path="/*/login" exact />
             <Route element={<Frame />}  path="/*/" />
           </Routes>
         </Router>
