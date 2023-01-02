@@ -102,7 +102,7 @@ export default function GlossaryAuthorRoutes({ glossaryAuthorURL }) {
       <Redirect path={glossaryAuthorURL} exact to={getGlossariesPath()} />
     
 
-      <Route path="/*" element={<h1>Route not recognised</h1>}></Route>
+      <Route path="/" element={<h1>Route not recognised</h1>}></Route>
       {/* <Route render={() => <h1>Route not recognised!!</h1>}></Route> */}
     </Routes>
   );

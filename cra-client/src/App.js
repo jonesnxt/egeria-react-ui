@@ -16,7 +16,7 @@ export default function App() {
           <Routes>
             <Route element={<NoServerName/>}  path="/"  />
             <Route element={<Login currentURL={window.location.href} />}  path="/*/login"  />
-            <Route element={<Frame />}  path="/*/*" />
+            <Route element={<Frame />}  path="/*/" />
           </Routes>
         </Router>
       </IdentificationContext>
