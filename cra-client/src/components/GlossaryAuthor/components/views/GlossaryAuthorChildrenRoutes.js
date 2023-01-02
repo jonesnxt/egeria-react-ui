@@ -1,7 +1,7 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 /* Copyright Contributors to the ODPi Egeria project. */
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import GlossaryAuthorCategoriesNavigation from "../GlossaryAuthorCategoriesNavigation";
 import GlossaryAuthorTermsNavigation from "../GlossaryAuthorTermsNavigation";
 
@@ -21,7 +21,7 @@ export default function GlossaryAuthorChildrenRoutes(props) {
   }
   
   return (
-    <Switch>
+    <Routes>
       <Route
         path={getTermsPath()}
         component={GlossaryAuthorTermsNavigation}
@@ -31,6 +31,6 @@ export default function GlossaryAuthorChildrenRoutes(props) {
         component={GlossaryAuthorCategoriesNavigation}
       ></Route>
       
-    </Switch>
+    </Routes>
   );
 }
