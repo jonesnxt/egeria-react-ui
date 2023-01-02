@@ -72,37 +72,37 @@ export default function GlossaryAuthorRoutes({ glossaryAuthorURL }) {
     <Routes>
     {/* top level first */}
     <Route
-        exact
+        
         path={getGlossariesPath()}
         element={<GlossaryAuthorNavigation />}
       ></Route>
       <Route
-        exact
+        
         path={getTermsPath()}
         element={<TermAuthorNavigation />}
       ></Route>
       <Route
-        exact
+        
         path={getCategoriesPath()}
         element={<CategoryAuthorNavigation />}
       ></Route>
-      <Route path={getGlossaryAuthorPathAny() + "quick-terms"} exact element={<GlossaryQuickTerms />} ></Route> 
+      <Route path={getGlossaryAuthorPathAny() + "quick-terms"}  element={<GlossaryQuickTerms />} ></Route> 
       {/* Adds */}
-      <Route path={getGlossaryAuthorPathAny() + "add"} exact element={<CreateNode />}></Route>
+      <Route path={getGlossaryAuthorPathAny() + "add"}  element={<CreateNode />}></Route>
 
       {/* edits */}
-      <Route path={getGlossaryAuthorPathAny() + "edit"} exact element={<UpdateNode />}></Route>
+      <Route path={getGlossaryAuthorPathAny() + "edit"}  element={<UpdateNode />}></Route>
 
       {/* children   */}
-       <Route path={getGlossaryAuthorPathAny() + "terms"} exact element={<NodeChildren />} ></Route>
-       <Route path={getGlossaryAuthorPathAny() + "categories"} exact element={<NodeChildren />} ></Route>
+       <Route path={getGlossaryAuthorPathAny() + "terms"}  element={<NodeChildren />} ></Route>
+       <Route path={getGlossaryAuthorPathAny() + "categories"}  element={<NodeChildren />} ></Route>
        {/* visualise */}
-       <Route path={getGlossaryAuthorPathAny() + "visualise"} exact element={<GlossaryAuthorGraphNavigation />}></Route> 
+       <Route path={getGlossaryAuthorPathAny() + "visualise"}  element={<GlossaryAuthorGraphNavigation />}></Route> 
 
       <Redirect path={glossaryAuthorURL} exact to={getGlossariesPath()} />
     
 
-      <Route path="/" element={<h1>Route not recognised</h1>}></Route>
+      <Route path="/*" element={<h1>Route not recognised</h1>}></Route>
       {/* <Route render={() => <h1>Route not recognised!!</h1>}></Route> */}
     </Routes>
   );
