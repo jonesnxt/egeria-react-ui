@@ -167,27 +167,13 @@ export default function Frame() {
             <Content id="main-content">
               <div className="bx--row">
                 <section className="bx--offset-lg-3 bx--col-lg-13">
-                  <Route path={rootUrl} exact>
-                    <Home />
-                  </Route>
-                  <Route path={homeUrl}>
-                    <Home />
-                  </Route>
-                  <Route path={glossaryAuthorUrl}>
-                    <GlossaryAuthor />
-                  </Route>
-                  <Route path={rexUrl}>
-                    <RepositoryExplorer />
-                  </Route>
-                  <Route path={typeUrl}>
-                    <TypeExplorer />
-                  </Route>
-                  <Route path={serverUrl}>
-                      <ServerAuthor />
-                  </Route>
-                  <Route path={dinoUrl}>
-                    <Dino />
-                  </Route>
+                  <Route element={<Home />}  path={rootUrl} exact />
+                  <Route element={<Home />}  path={homeUrl} />
+                  <Route element={<GlossaryAuthor />}  path={glossaryAuthorUrl} />
+                  <Route element={<RepositoryExplorer />}  path={rexUrl} />
+                  <Route element={<TypeExplorer />}  path={typeUrl} />
+                  <Route element={<ServerAuthor />}  path={serverUrl} />
+                  <Route element={<Dino />}  path={dinoUrl} />
                 </section>
               </div>
             </Content>

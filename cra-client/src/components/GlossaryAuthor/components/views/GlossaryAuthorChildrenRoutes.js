@@ -24,11 +24,11 @@ export default function GlossaryAuthorChildrenRoutes(props) {
     <Routes>
       <Route
         path={getTermsPath()}
-        component={GlossaryAuthorTermsNavigation}
+        element={<GlossaryAuthorTermsNavigation />}
       ></Route>
       <Route
         path={getCategoriesPath()}
-        component={GlossaryAuthorCategoriesNavigation}
+        element={<GlossaryAuthorCategoriesNavigation />}
       ></Route>
       
     </Routes>
